@@ -1,10 +1,42 @@
 import { ColumnChart } from "@ui5/webcomponents-react-charts";
 
-const data = require("../Data/data.json");
+const data_original = require("../Data/data.json");
 function BarChart() {
+	// settings:
+	const SETMONTH = "DECEMBER";
+	const result = [];
+
+	const targetObject = data_original["Monthly Tracking"].find(
+		(obj) => obj.Month === SETMONTH
+	);
+	const month = data_original["Monthly Tracking"].indexOf(targetObject);
+
+	for (const key in data_original["Monthly Tracking"][month]) {
+		if (key === "Compost") {
+			result.push({
+				group1: key,
+				val: data_original["Monthly Tracking"][month][key],
+			});
+		}
+		if (key === "coffeeGrounds") {
+			result.push({
+				group1: key,
+				val: data_original["Monthly Tracking"][month][key],
+			});
+		}
+		if (key === "Garbage") {
+			result.push({
+				group1: key,
+				val: data_original["Monthly Tracking"][month][key],
+			});
+		}
+	}
+
+	console.log(result);
+
 	return (
 		<ColumnChart
-			dataset={data["Monthly Tracking"]}
+			dataset={result}
 			dimensions={[
 				{
 					accessor: "Month",

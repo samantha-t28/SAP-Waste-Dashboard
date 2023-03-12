@@ -1,38 +1,25 @@
-.App {
-  text-align: center;
+/* Dashboard Chart Styling Start */
+
+.dashboard .bar_chart,
+.donut_chart {
+	border-radius: 25px;
+	margin: 2.5rem;
+	box-shadow: 10px 10px 14px 0px #00000030;
+	-webkit-box-shadow: 10px 10px 14px 0px #00000030;
+	-moz-box-shadow: 10px 10px 14px 0px #00000030;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dashboard .bar_chart {
+	background-color: #f3f3f3;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dashboard .donut_chart {
+	background-color: #f5f2f2;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.dashboard .row {
+	display: flex;
+	justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Dashboard Chart Styling End */
