@@ -1,68 +1,56 @@
 import { ColumnChart } from "@ui5/webcomponents-react-charts";
 
-const data_original = require("../Data/data.json");
+const data = require("../Data/data.json");
+
 function BarChart() {
-	// settings:
-	const SETMONTH = "DECEMBER";
-	const result = [];
+	let result = [];
 
-	const targetObject = data_original["Monthly Tracking"].find(
-		(obj) => obj.Month === SETMONTH
-	);
-	const month = data_original["Monthly Tracking"].indexOf(targetObject);
+	for (let i = 10; i < 12; i++) {
+		// we are now looping in here: nov and dec
 
-	for (const key in data_original["Monthly Tracking"][month]) {
-		if (key === "Compost") {
-			result.push({
-				group1: key,
-				val: data_original["Monthly Tracking"][month][key],
-			});
-		}
-		if (key === "coffeeGrounds") {
-			result.push({
-				group1: key,
-				val: data_original["Monthly Tracking"][month][key],
-			});
-		}
-		if (key === "Garbage") {
-			result.push({
-				group1: key,
-				val: data_original["Monthly Tracking"][month][key],
-			});
-		}
+		let rigidData =
+			data["Monthly Tracking"][i]["Rigids      (refundable & non)"];
+		let paperData = data["Monthly Tracking"][i]["Mixed Paper/Fiber"];
+		let compostData = data["Monthly Tracking"][i]["Compost"];
+		let garbageData = data["Monthly Tracking"][i]["Garbage"];
+
+		result.push({
+			month: data["Monthly Tracking"][i]["Month"],
+			rigids: rigidData,
+			paper: paperData,
+			compost: compostData,
+			garbage: garbageData,
+		});
+		// console.log(result);
 	}
-
-	console.log(result);
 
 	return (
 		<ColumnChart
+			style={{ height: "350px" }}
 			dataset={result}
 			dimensions={[
 				{
-					accessor: "Month",
-					formatter: function Ma() {},
+					accessor: "month",
 				},
 			]}
 			measures={[
 				{
-					accessor: "Rigids      (refundable & non)",
-					formatter: function Ma() {},
+					accessor: "rigids",
 					label: "Rigids",
 				},
 				{
-					accessor: "Compost",
-					formatter: function Ma() {},
-					hideDataLabel: true,
-					label: "Compost",
+					accessor: "paper",
+					label: "Mixed Recycling / Paper",
 				},
 				{
-					accessor: "Garbage",
-					label: "Garbage",
+					accessor: "compost",
+					label: "Food Waste & Organics",
+				},
+				{
+					accessor: "garbage",
+					label: "Landfill",
 				},
 			]}
-			onClick={function Ma() {}}
-			onDataPointClick={function Ma() {}}
-			onLegendClick={function Ma() {}}
 		/>
 	);
 }

@@ -1,44 +1,27 @@
 import { DonutChart } from "@ui5/webcomponents-react-charts";
 
-const data = require("../Data/data.json");
-
-function PieChart() {
-	// settings:
-	const SETMONTH = "FEBRUARY";
+function PieChart({ data, filter, selectedMonth, label }) {
 	const result = [];
-	const category = "Landfill";
 
-	// set data["Monthly Tracking"][0] - 0 means jan , 1 means feb
+	// console.log(filter, data, selectedMonth);
+	const monthData = data.find((obj) => obj.Month === selectedMonth);
+	const month = data.indexOf(monthData);
 
-	const targetObject = data["Monthly Tracking"].find(
-		(obj) => obj.Month === SETMONTH
-	);
-	const month = data["Monthly Tracking"].indexOf(targetObject);
-
-	// for loop that goes through the Monthly Tracking obj, the "key" is for example: Compost, Year etc
-	// the if statements is for catching what "we need" to display
-	for (const key in data["Monthly Tracking"][month]) {
-		if (key === "Coffee Grounds") {
+	// loop through data
+	for (const key in data[month]) {
+		// if item includes in filter
+		if (filter.includes(key)) {
 			result.push({
 				group1: key + " (in Kg)",
-				val: data["Monthly Tracking"][month][key],
-			});
-		}
-		if (key === "Garbage") {
-			result.push({
-				group1: key + " (in Kg)",
-				val: data["Monthly Tracking"][month][key],
+				val: data[month][key],
 			});
 		}
 	}
 
-	// console.log(result);
-
 	return (
 		<DonutChart
-			centerLabel={category}
+			centerLabel={label}
 			dataset={result}
-			// required
 			dimension={{
 				accessor: "group1",
 			}}
