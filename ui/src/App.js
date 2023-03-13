@@ -4,6 +4,7 @@ import { ShellBar } from "@ui5/webcomponents-react";
 import BarChart from "./Components/BarChart";
 import DonutChart from "./Components/DonutChart";
 import RadialChart from "./Components/RadialChart";
+const data = require("../src/Data/data.json");
 
 function App() {
 	return (
@@ -22,11 +23,36 @@ function App() {
 					<div className="row">
 						<BarChart />
 						<RadialChart />
-						{/* <DonutChart /> */}
 					</div>
 				</section>
 				<section className="donut_chart">
-					<DonutChart />
+					<DonutChart
+						data={data["Monthly Tracking"]}
+						filter={["Garbage", "Coffee Grounds"]}
+						selectedMonth="DECEMBER"
+						label="Landfill"
+					/>
+				</section>
+				<section className="chart_wrap">
+					<div className="donut_chart">
+						<DonutChart
+							data={data["Monthly Tracking"]}
+							filter={[
+								"Mixed Paper/Fiber",
+								"Confidential Paper Cascades)",
+							]}
+							selectedMonth="JANUARY"
+							label="Paper"
+						/>
+					</div>
+					<div className="donut_chart">
+						<DonutChart
+							data={data["Monthly Tracking"]}
+							filter={["Grounds", "Coffee Grounds"]}
+							selectedMonth="DECEMBER"
+							label="Paper"
+						/>
+					</div>
 				</section>
 			</main>
 		</>

@@ -22,4 +22,11 @@
 	justify-content: space-between;
 }
 
+.chart_wrap {
+	display: flex;
+}
+
+.chart_wrap .donut_chart {
+	width: 100%;
+}
 /* Dashboard Chart Styling End */
