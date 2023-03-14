@@ -1,4 +1,8 @@
 /* Dashboard Chart Styling Start */
+h1,
+h2 {
+	margin-left: 2.2rem;
+}
 
 .dashboard .bar_chart,
 .donut_chart {
@@ -24,9 +28,11 @@
 
 .chart_wrap {
 	display: flex;
+	margin-top: -40px;
 }
 
 .chart_wrap .donut_chart {
 	width: 100%;
 }
+
 /* Dashboard Chart Styling End */

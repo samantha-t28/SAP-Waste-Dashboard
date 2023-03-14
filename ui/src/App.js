@@ -19,20 +19,21 @@ function App() {
 				primaryTitle="Waste Diversion Dashboard"
 			></ShellBar>
 			<main className="dashboard">
+				<h1>Overview: Previous Months</h1>
 				<section className="bar_chart">
 					<div className="row">
 						<BarChart />
 						<RadialChart />
 					</div>
 				</section>
-				<section className="donut_chart">
+				{/* <section className="donut_chart">
 					<DonutChart
 						data={data["Monthly Tracking"]}
 						filter={["Garbage", "Coffee Grounds"]}
 						selectedMonth="DECEMBER"
 						label="Landfill"
 					/>
-				</section>
+				</section> */}
 				<section className="chart_wrap">
 					<div className="donut_chart">
 						<DonutChart
@@ -40,9 +41,11 @@ function App() {
 							filter={[
 								"Mixed Paper/Fiber",
 								"Confidential Paper Cascades)",
+								"Compost",
+								"Rigids      (refundable & non)",
 							]}
-							selectedMonth="JANUARY"
-							label="Paper"
+							selectedMonth="FEBRUARY"
+							label="Cascade Recovery"
 						/>
 					</div>
 					<div className="donut_chart">
