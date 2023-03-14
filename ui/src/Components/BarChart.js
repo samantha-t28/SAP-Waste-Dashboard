@@ -13,15 +13,18 @@ function BarChart() {
 		let paperData = data["Monthly Tracking"][i]["Mixed Paper/Fiber"];
 		let compostData = data["Monthly Tracking"][i]["Compost"];
 		let garbageData = data["Monthly Tracking"][i]["Garbage"];
+		let coffeeData = data["Monthly Tracking"][i]["Coffee Grounds"];
+
+		let cascadeData = rigidData + paperData;
 
 		result.push({
 			month: data["Monthly Tracking"][i]["Month"],
-			rigids: rigidData,
-			paper: paperData,
-			compost: compostData,
-			garbage: garbageData,
+			cascadeTotal: cascadeData,
+			ecoactionTotal: compostData,
+			wasteTotal: garbageData,
+			coffeeTotal: coffeeData,
 		});
-		// console.log(result);
+		// console.log(totalData);
 	}
 
 	return (
@@ -35,20 +38,24 @@ function BarChart() {
 			]}
 			measures={[
 				{
-					accessor: "rigids",
-					label: "Rigids",
+					accessor: "cascadeTotal",
+					label: "Cascade Recovery",
+					color: "#ebc700",
 				},
 				{
-					accessor: "paper",
-					label: "Mixed Recycling / Paper",
+					accessor: "ecoactionTotal",
+					label: "Eco Action Recycling",
+					color: "#13a373",
 				},
 				{
-					accessor: "compost",
-					label: "Food Waste & Organics",
+					accessor: "wasteTotal",
+					label: "Waste Control Services",
+					color: "grey",
 				},
 				{
-					accessor: "garbage",
-					label: "Landfill",
+					accessor: "coffeeTotal",
+					label: "Thirst First Services",
+					color: "#e6873a",
 				},
 			]}
 		/>
