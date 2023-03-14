@@ -22,7 +22,7 @@ function App() {
 				<h1>Overview: Previous Months</h1>
 				<section className="bar_chart">
 					<div className="row">
-						<BarChart />
+						<BarChart months={data["Monthly Tracking"]} />
 						<RadialChart />
 					</div>
 				</section>
@@ -53,7 +53,7 @@ function App() {
 							data={data["Monthly Tracking"]}
 							filter={["Grounds", "Coffee Grounds"]}
 							selectedMonth="DECEMBER"
-							label="Paper"
+							label="Thirst First Service"
 						/>
 					</div>
 				</section>

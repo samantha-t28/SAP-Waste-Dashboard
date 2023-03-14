@@ -1,30 +1,29 @@
 import { ColumnChart } from "@ui5/webcomponents-react-charts";
 
-const data = require("../Data/data.json");
-
-function BarChart() {
+// link months
+function BarChart({ months }) {
 	let result = [];
 
-	for (let i = 10; i < 12; i++) {
-		// we are now looping in here: nov and dec
+	// reduce array length to show two months
+	// get the last 3 months
+	months = months.slice(-3);
+	// remove last month(2022 total)
+	months.pop();
 
-		let rigidData =
-			data["Monthly Tracking"][i]["Rigids      (refundable & non)"];
-		let paperData = data["Monthly Tracking"][i]["Mixed Paper/Fiber"];
-		let compostData = data["Monthly Tracking"][i]["Compost"];
-		let garbageData = data["Monthly Tracking"][i]["Garbage"];
-		let coffeeData = data["Monthly Tracking"][i]["Coffee Grounds"];
+	// looping other months
+	for (const [key, month] of Object.entries(months)) {
+		// console.log(key, month);
 
-		let cascadeData = rigidData + paperData;
-
+		// adding months to result array
 		result.push({
-			month: data["Monthly Tracking"][i]["Month"],
-			cascadeTotal: cascadeData,
-			ecoactionTotal: compostData,
-			wasteTotal: garbageData,
-			coffeeTotal: coffeeData,
+			month: month["Month"],
+			cascadeTotal:
+				month["Rigids      (refundable & non)"] +
+				month["Mixed Paper/Fiber"],
+			ecoactionTotal: month["Compost"],
+			wasteTotal: month["Garbage"],
+			coffeeTotal: month["Coffee Grounds"],
 		});
-		// console.log(totalData);
 	}
 
 	return (
