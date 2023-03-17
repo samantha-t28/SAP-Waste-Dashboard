@@ -1,34 +1,40 @@
 import { ColumnChart } from "@ui5/webcomponents-react-charts";
 
-// link months
-function BarChart({ months }) {
+// link months from app.js
+function ColumnBar({ months, filter }) {
 	let result = [];
 
 	// reduce array length to show two months
 	// get the last 3 months
-	months = months.slice(-3);
-	// remove last month(2022 total)
-	months.pop();
+	// months = months.slice(0, 3);
+	// // remove last month(2022 total)
+	// months.pop();
+
+	// console.log(months);
 
 	// looping other months
 	for (const [key, month] of Object.entries(months)) {
-		// console.log(key, month);
-
+		// console.log(month.Month);
+		// console.log(filter);
+		const includesInMonthsArrayFilter = filter.includes(month.Month);
+		// console.log(includesInMonthsArrayFilter);
 		// adding months to result array
-		result.push({
-			month: month["Month"],
-			cascadeTotal:
-				month["Rigids      (refundable & non)"] +
-				month["Mixed Paper/Fiber"],
-			ecoactionTotal: month["Compost"],
-			wasteTotal: month["Garbage"],
-			coffeeTotal: month["Coffee Grounds"],
-		});
+		if (filter.includes(month.Month)) {
+			result.push({
+				month: month["Month"],
+				cascadeTotal:
+					month["Rigids      (refundable & non)"] +
+					month["Mixed Paper/Fiber"],
+				ecoactionTotal: month["Compost"],
+				wasteTotal: month["Garbage"],
+				coffeeTotal: month["Coffee Grounds"],
+			});
+		}
 	}
 
 	return (
 		<ColumnChart
-			style={{ height: "350px" }}
+			style={{ height: "325px" }}
 			dataset={result}
 			dimensions={[
 				{
@@ -61,4 +67,4 @@ function BarChart({ months }) {
 	);
 }
 
-export default BarChart;
+export default ColumnBar;
