@@ -20,14 +20,17 @@ function PieChart({ data, filter, selectedMonth, label }) {
 
 	return (
 		<DonutChart
+			style={{ height: "325px" }}
 			centerLabel={label}
 			dataset={result}
 			dimension={{
 				accessor: "group1",
+				height: 200,
 			}}
 			measure={{
 				accessor: "val",
 				DataLabel: "kg",
+				color: "black",
 			}}
 		/>
 	);

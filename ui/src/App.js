@@ -1,9 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { ShellBar } from "@ui5/webcomponents-react";
-import BarChart from "./Components/BarChart";
+import ColumnGraph from "./Components/ColumnGraph";
+import BarGraph from "./Components/BarGraph";
 import DonutChart from "./Components/DonutChart";
 import RadialChart from "./Components/RadialChart";
+
 const data = require("../src/Data/data.json");
 
 function App() {
@@ -19,11 +21,14 @@ function App() {
 				primaryTitle="Waste Diversion Dashboard"
 			></ShellBar>
 			<main className="dashboard">
-				<h1>Overview: Previous Months</h1>
+				<h1>Overview</h1>
 				<section className="bar_chart">
 					<div className="row">
-						<BarChart months={data["Monthly Tracking"]} />
-						<RadialChart />
+						<ColumnGraph
+							months={data["Monthly Tracking"]}
+							filter={["JANUARY", "FEBRUARY"]}
+						/>
+						{/* <RadialChart /> */}
 					</div>
 				</section>
 				{/* <section className="donut_chart">
@@ -40,8 +45,7 @@ function App() {
 							data={data["Monthly Tracking"]}
 							filter={[
 								"Mixed Paper/Fiber",
-								"Confidential Paper Cascades)",
-								"Compost",
+								"Confidential Paper",
 								"Rigids      (refundable & non)",
 							]}
 							selectedMonth="FEBRUARY"
@@ -49,12 +53,13 @@ function App() {
 						/>
 					</div>
 					<div className="donut_chart">
-						<DonutChart
+						{/* <DonutChart
 							data={data["Monthly Tracking"]}
 							filter={["Grounds", "Coffee Grounds"]}
 							selectedMonth="DECEMBER"
 							label="Thirst First Service"
-						/>
+						/> */}
+						<BarGraph months={data["Monthly Tracking"]} />
 					</div>
 				</section>
 			</main>
