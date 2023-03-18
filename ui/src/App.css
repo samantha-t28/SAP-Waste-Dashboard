@@ -3,9 +3,12 @@ h1,
 h2 {
 	margin-left: 2.2rem;
 }
+h2 {
+	padding-bottom: 25px;
+}
 
 .dashboard .bar_chart,
-.donut_chart {
+.card {
 	border-radius: 25px;
 	margin: 2.5rem;
 	box-shadow: 10px 10px 14px 0px #00000030;
@@ -17,7 +20,7 @@ h2 {
 	background-color: #f3f3f3;
 }
 
-.dashboard .donut_chart {
+.dashboard .card {
 	background-color: #f5f2f2;
 }
 
@@ -31,7 +34,7 @@ h2 {
 	margin-top: -60px;
 }
 
-.chart_wrap .donut_chart {
+.chart_wrap .card {
 	width: 100%;
 }
 

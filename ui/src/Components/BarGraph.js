@@ -38,12 +38,12 @@ function BarGraph({ months }) {
 				{
 					accessor: "users",
 					label: "Coffee Grounds",
-					opacity: 0.6,
+					color: "#e6873a",
 				},
 				{
 					accessor: "sessions",
-
 					label: "Landfill",
+					color: "grey",
 				},
 				{
 					accessor: "volume",
