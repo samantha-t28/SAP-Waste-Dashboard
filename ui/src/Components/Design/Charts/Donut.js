@@ -1,15 +1,14 @@
 import { DonutChart } from "@ui5/webcomponents-react-charts";
 
-function PieChart({ data, filter, selectedMonth, label }) {
+function Donut({ data, filter, selectedMonth, label }) {
 	const result = [];
 
 	// console.log(filter, data, selectedMonth);
 	const monthData = data.find((obj) => obj.Month === selectedMonth);
+
 	const month = data.indexOf(monthData);
 
-	// loop through data
 	for (const key in data[month]) {
-		// if item includes in filter
 		if (filter.includes(key)) {
 			result.push({
 				group1: key + " (in Kg)",
@@ -30,10 +29,10 @@ function PieChart({ data, filter, selectedMonth, label }) {
 			measure={{
 				accessor: "val",
 				DataLabel: "kg",
-				color: "black",
+				colors: ["#47a6f3", "#476af3", "blue"],
 			}}
 		/>
 	);
 }
 
-export default PieChart;
+export default Donut;
