@@ -1,5 +1,4 @@
-import "../../App.css";
-
+import "../Design/sass/main.scss";
 import { Route, Routes } from "react-router-dom";
 import { Overview } from "./Screens/Overview";
 import { Comparison } from "./Screens/Comparison";

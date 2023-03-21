@@ -1,3 +1,7 @@
 export const Container = ({ children }) => {
-	return <main className="dashboard">{children}</main>;
+	return (
+		<main className="dashboard">
+			<div className="wrapper">{children}</div>
+		</main>
+	);
 };
