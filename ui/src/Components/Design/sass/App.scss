@@ -1,0 +1,189 @@
+@use "./abstract/variables.scss" as vars;
+@use "./abstract/mixins" as mixins;
+body {
+	margin: 0 auto;
+	padding: 0 auto;
+	box-sizing: border-box;
+	font-family: vars.$primary-font;
+	background-color: vars.$lightGrey-100;
+}
+
+/*========== Typography ==========*/
+
+// to over-ride the normalizer file
+body h1,
+.sub-heading {
+	margin-left: 2rem;
+}
+
+h1,
+h2 {
+	font-weight: vars.$font-weight-400;
+}
+
+p {
+	font-size: 1.5rem;
+}
+
+/*====== Overview Dashboard ========*/
+
+.dashboard .bar_chart,
+.overview-card {
+	border-radius: vars.$border-radius-25;
+	margin: 2.5rem;
+	box-shadow: vars.$box-shadow-100;
+	-webkit-box-shadow: vars.$box-shadow-100;
+	-moz-box-shadow: vars.$box-shadow-100;
+}
+
+.bar_chart,
+.overview-card {
+	background-color: vars.$light-white-100;
+}
+
+.row {
+	@include mixins.flex-display(space-between);
+}
+
+.chart_wrap {
+	@include mixins.flex-display(null, -60px);
+}
+
+.overview-card {
+	width: vars.$width-100;
+}
+
+.test {
+	background-color: blue($color: #dd1414);
+}
+
+/*========== Comparison Page ==========*/
+
+.image,
+.refundables .image {
+	width: 2rem;
+	height: 2rem;
+	position: relative;
+	top: -35px;
+	bottom: 0;
+}
+
+.refundables .image {
+	width: 2.2rem;
+	height: 4rem;
+	padding: 0 0.25rem 0.25rem;
+}
+
+.positive,
+.negative {
+	margin-bottom: 50px;
+	padding: 0 0 1rem;
+	width: vars.$width-25;
+	height: 25px;
+	border: 1px solid black;
+	border-radius: vars.$border-radius-5;
+	box-shadow: vars.$box-shadow-50;
+	-webkit-box-shadow: vars.$box-shadow-50;
+	-moz-box-shadow: vars.$box-shadow-50;
+}
+
+.flex {
+	@include mixins.flex-display;
+	position: relative;
+	top: 25px;
+	bottom: 0;
+}
+
+.positive {
+	background-color: vars.$green;
+}
+
+.negative {
+	background-color: vars.$red;
+}
+
+.percent-text {
+	position: relative;
+	top: -35%;
+	bottom: 0;
+	font-weight: 500;
+}
+
+.arrow {
+	margin-right: 10px;
+	font-size: 24px;
+	display: inline-block;
+	transform: scaleX(1.5);
+}
+
+.header-row {
+	display: flex;
+}
+
+.header-row p {
+	margin-left: 3rem;
+}
+
+/*========== Card ==========*/
+
+.card {
+	position: relative;
+	margin: 20px;
+	padding: 30px;
+	height: 15rem;
+	border-radius: vars.$border-radius-5;
+	box-shadow: vars.$box-shadow-200;
+	-webkit-box-shadow: vars.$box-shadow-200;
+	-moz-box-shadow: vars.$box-shadow-200;
+	text-align: center;
+	background-color: vars.$light-white-100;
+}
+
+.cyan {
+	@include mixins.border-horizontal(vars.$light-green-50);
+}
+
+.grey {
+	@include mixins.border-horizontal(vars.$dark-grey-300);
+}
+
+.blue {
+	@include mixins.border-horizontal(vars.$blue);
+}
+
+.orange {
+	@include mixins.border-horizontal(vars.$orange);
+}
+
+/*========== Media Queries ==========*/
+
+@media (min-width: 576px) {
+	h1 {
+		font-size: 1.5rem;
+	}
+	.image {
+		max-width: 50px;
+		width: 3rem;
+		height: 3rem;
+	}
+	// .card {
+	// 	height: 10%;
+	// }
+}
+
+@media (min-width: 950px) {
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.card {
+		width: 25%;
+		height: 260px;
+	}
+
+	.percent-text {
+		top: -32%;
+	}
+}
