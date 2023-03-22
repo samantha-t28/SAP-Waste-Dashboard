@@ -1,0 +1,40 @@
+@use "./variables" as vars;
+
+// Flex
+
+@mixin flex-display($justify-content: null, $margin-top: null) {
+	display: flex;
+
+	@if $justify-content != null {
+		justify-content: $justify-content;
+	}
+
+	@if $margin-top != null {
+		margin-top: $margin-top;
+	}
+}
+
+// Card
+
+@mixin border-horizontal($color) {
+	border: {
+		style: solid;
+		width: 3px;
+		color: $color;
+		left-width: 0;
+		right-width: 0;
+	}
+}
+
+$colors: (
+	cyan: vars.$light-green-50,
+	grey: vars.$dark-grey-300,
+	blue: vars.$blue,
+	orange: vars.$orange,
+);
+
+@each $name, $color in $colors {
+	.#{$name} {
+		@include border-horizontal($color);
+	}
+}

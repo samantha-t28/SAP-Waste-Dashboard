@@ -35,13 +35,9 @@ export const ImageComponent = ({ title }) => {
 		],
 	};
 
-	//  tries to find the array of images corresponding to the given title prop in the imagesByTitle object
-	//  If the title is not present as a key in the imagesByTitle object, it will default to an empty array []
 	const imagesToDisplay = imagesByTitle[title] || [];
 
 	return (
-		// responsible for rendering the images. It checks whether imagesToDisplay is truthy,
-		//and if it is, it maps over the imagesToDisplay array and creates an <img> element for each image object in the array.
 		<>
 			{imagesToDisplay &&
 				imagesToDisplay.map((image, index) => (

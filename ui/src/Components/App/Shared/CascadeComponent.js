@@ -7,8 +7,8 @@
 // @months: comes from comparison.js as an import like this: months={data["Monthly Tracking"]}
 // @filter: comes from comparison.js as selector of months that they want to see like this: filter={["JANUARY", "FEBRUARY"]}
 // Currently we will expect to always have 2 months otherwise this component might break
+
 function CascadeComponent({ percentage, months, filter }) {
-	// PULL DATA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	let result = [];
 
 	months = months.slice(0); // months = months // because of safety

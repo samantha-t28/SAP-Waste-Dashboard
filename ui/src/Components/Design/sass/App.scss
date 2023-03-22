@@ -1,65 +1,54 @@
-/* Dashboard Chart Styling Start */
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@use "./abstract/variables.scss" as vars;
+@use "./abstract/mixins" as mixins;
 body {
 	margin: 0 auto;
 	padding: 0 auto;
 	box-sizing: border-box;
-	font-family: "Poppins", sans-serif;
-	background-color: #e9e9e9;
+	font-family: vars.$primary-font;
+	background-color: vars.$lightGrey-100;
 }
 
 /*========== Typography ==========*/
-h1,
+
+// to over-ride the normalizer file
+body h1,
 h2 {
-	margin-left: 2.2rem;
+	margin-left: 2rem;
 }
 
 p {
 	font-size: 1.5rem;
 }
 
-/*====== Overview Dashboar========*/
+/*====== Overview Dashboard ========*/
 
 .dashboard .bar_chart,
 .overview-card {
-	border-radius: 25px;
+	border-radius: vars.$border-radius-25;
 	margin: 2.5rem;
-	box-shadow: 10px 10px 14px 0px #00000030;
-	-webkit-box-shadow: 10px 10px 14px 0px #00000030;
-	-moz-box-shadow: 10px 10px 14px 0px #00000030;
+	box-shadow: vars.$box-shadow-100;
+	-webkit-box-shadow: vars.$box-shadow-100;
+	-moz-box-shadow: vars.$box-shadow-100;
 }
 
-.dashboard {
-	& .bar_chart {
-		background-color: #f3f3f3;
-	}
+.bar_chart,
+.overview-card {
+	background-color: vars.$light-white-100;
 }
 
-.dashboard {
-	& .overview-card {
-		background-color: #f5f2f2;
-	}
-}
-
-.dashboard {
-	& .row {
-		display: flex;
-		justify-content: space-between;
-	}
+.row {
+	@include mixins.flex-display(space-between);
 }
 
 .chart_wrap {
-	display: flex;
-	margin-top: -60px;
+	@include mixins.flex-display(null, -60px);
 }
 
-.chart_wrap {
-	& .overview-card {
-		width: 100%;
-	}
+.overview-card {
+	width: vars.$width-100;
 }
 
-/*========== Comparison ==========*/
+/*========== Comparison Page ==========*/
 
 .image {
 	width: 2rem;
@@ -68,70 +57,72 @@ p {
 
 .refundables {
 	& .image {
+		padding: 0 0.25rem 0.25rem;
 		height: 4rem;
 		width: 2.2rem;
+		position: relative;
+		top: -20%;
 	}
 }
-.refundables {
-	& .image {
-		padding: 0 0.25rem 0.25rem;
-	}
+// .refundables {
+// 	& .image {
+// 	}
+// }
+
+.positive,
+.negative {
+	margin-bottom: 50px;
+	padding: 0 0 1rem;
+	width: vars.$width-100;
+	height: 1rem;
+	border-radius: vars.$border-radius-50;
+	box-shadow: vars.$box-shadow-50;
+	-webkit-box-shadow: vars.$box-shadow-50;
+	-moz-box-shadow: vars.$box-shadow-50;
 }
 
 .positive {
-	margin-bottom: 50px;
-	padding: 0 0 15px;
-	width: 100%;
-	height: 25px;
-	border-radius: 50px;
-	background-color: #87d677;
-	-webkit-box-shadow: 10px 10px 19px -11px rgba(0, 0, 0, 0.59);
-	-moz-box-shadow: 10px 10px 19px -11px rgba(0, 0, 0, 0.59);
-	box-shadow: 10px 10px 19px -11px rgba(0, 0, 0, 0.59);
-}
-.negative {
-	margin-bottom: 50px;
-	padding: 0 0 15px;
-	width: 100%;
-	height: 25px;
-	border-radius: 50px;
-	background-color: #cf4141;
-	box-shadow: 10px 10px 19px -11px rgba(0, 0, 0, 0.59);
-	-webkit-box-shadow: 10px 10px 19px -11px rgba(0, 0, 0, 0.59);
-	-moz-box-shadow: 10px 10px 19px -11px rgba(0, 0, 0, 0.59);
+	background-color: vars.$green;
 }
 
-/*========== Card Styling ==========*/
+.negative {
+	background-color: vars.$red;
+}
+
+.percent-text {
+	position: relative;
+	top: -30%;
+	bottom: 0;
+}
+
+/*========== Card ==========*/
 
 .card {
 	margin: 20px;
 	padding: 30px;
 	height: 15rem;
-	border-radius: 5px;
-	box-shadow: 0px 30px 40px -20px rgb(163, 165, 174);
+	border-radius: vars.$border-radius-5;
+	box-shadow: vars.$box-shadow-200;
+	-webkit-box-shadow: vars.$box-shadow-200;
+	-moz-box-shadow: vars.$box-shadow-200;
 	text-align: center;
-	background-color: #f7f7f7;
+	background-color: vars.$light-white-100;
 }
 
 .cyan {
-	border: 4px solid #68d851;
-	border-left: none;
-	border-right: none;
+	@include mixins.border-horizontal(vars.$light-green-50);
 }
+
 .grey {
-	border: 3px solid #969696;
-	border-left: none;
-	border-right: none;
+	@include mixins.border-horizontal(vars.$dark-grey-300);
 }
+
 .blue {
-	border: 3px solid #549ef2;
-	border-left: none;
-	border-right: none;
+	@include mixins.border-horizontal(vars.$blue);
 }
+
 .orange {
-	border: 3px solid #fcaf4a;
-	border-left: none;
-	border-right: none;
+	@include mixins.border-horizontal(vars.$orange);
 }
 
 /*========== Media Queries ==========*/
@@ -163,4 +154,12 @@ p {
 	}
 }
 
-/* Dashboard Chart Styling End */
+.triangle {
+	margin-left: 36%;
+	width: 0;
+	height: 0;
+	border-top: 40px solid transparent;
+	border-right: 80px solid vars.$green;
+	border-bottom: 40px solid transparent;
+	transform: rotate(270deg);
+}

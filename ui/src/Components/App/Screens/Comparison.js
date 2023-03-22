@@ -1,6 +1,5 @@
 import CascadeComponent from "../Shared/CascadeComponent";
 import EcoActionComponent from "../Shared/EcoActionComponent";
-
 import { ImageComponent } from "../Shared/ImageComponent";
 import RefundablesComponent from "../Shared/RefundablesComponent";
 import WasteServiceComponent from "../Shared/WasteServiceComponent";
@@ -11,7 +10,10 @@ export const Comparison = () => {
 	return (
 		<>
 			<section>
-				<h1>Comparison</h1>
+				<div className="row">
+					<h1>Comparison</h1>
+					<p>Testing</p>
+				</div>
 				<div className="container">
 					<div className="card blue">
 						<p>Cascade Recovery</p>

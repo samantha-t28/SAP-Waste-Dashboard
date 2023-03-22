@@ -33,18 +33,12 @@ function RefundablesComponent({ percentage, months, filter }) {
 	percentage = percent.toFixed(2) + "%";
 
 	const isNegative = percent < 0;
-	const backgroundColor = isNegative ? "positive" : "negative";
+	const backgroundColor = isNegative ? "triangle" : "negative";
 
 	return (
 		<>
-			{/* <RadialChart
-				style={{ height: "125px" }}
-				displayValue={percentage}
-				value={100}
-			/> */}
-			<div className={backgroundColor}>
-				<p>{percentage}</p>
-			</div>
+			<div className={backgroundColor}></div>
+			<p className="percent-text">{percentage}</p>
 		</>
 	);
 }
