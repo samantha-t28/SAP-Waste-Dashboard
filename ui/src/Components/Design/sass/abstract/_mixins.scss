@@ -2,7 +2,7 @@
 
 // Flex
 
-@mixin flex-display($justify-content: null, $margin-top: null) {
+@mixin flex-display($justify-content: center, $margin-top: null) {
 	display: flex;
 
 	@if $justify-content != null {
@@ -38,3 +38,18 @@ $colors: (
 		@include border-horizontal($color);
 	}
 }
+
+// Aarrow
+
+// @mixin arrow($color, $rotation) {
+//   margin-left: 36%;
+//   width: 0;
+//   height: 0;
+//   position: relative;
+//   top: 28%;
+//   right: 18%;
+//   border-top: 40px solid transparent;
+//   border-right: 80px solid $color;
+//   border-bottom: 40px solid transparent;
+//   transform: rotate($rotation);
+// }

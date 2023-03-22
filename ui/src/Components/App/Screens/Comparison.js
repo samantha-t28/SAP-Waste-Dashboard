@@ -10,13 +10,13 @@ export const Comparison = () => {
 	return (
 		<>
 			<section>
-				<div className="row">
+				<div className="header-row">
 					<h1>Comparison</h1>
-					<p>Testing</p>
+					{/* <p>Legend</p> */}
 				</div>
 				<div className="container">
 					<div className="card blue">
-						<p>Cascade Recovery</p>
+						<h2>Cascade Recovery</h2>
 						<CascadeComponent
 							percentage="percent text placeholder"
 							months={data["Monthly Tracking"]}
@@ -25,7 +25,7 @@ export const Comparison = () => {
 						<ImageComponent title="cascade" />
 					</div>
 					<div className="card cyan eco-action">
-						<p>Eco Action</p>
+						<h2>Eco Action</h2>
 						<EcoActionComponent
 							percentage="percent text placeholder"
 							months={data["Monthly Tracking"]}
@@ -36,7 +36,7 @@ export const Comparison = () => {
 				</div>
 				<div className="container">
 					<div className="card grey">
-						<p>Waste Control Services</p>
+						<h2>Waste Control Services</h2>
 						<WasteServiceComponent
 							percentage="percent text placeholder"
 							months={data["Monthly Tracking"]}
@@ -45,7 +45,7 @@ export const Comparison = () => {
 						<ImageComponent title="waste" />
 					</div>
 					<div className="card orange">
-						<p>Refundables</p>
+						<h2>Refundables</h2>
 						<RefundablesComponent
 							percentage="percent text placeholder"
 							months={data["Monthly Tracking"]}

@@ -34,12 +34,17 @@ function WasteServiceComponent({ percentage, months, filter }) {
 
 	const isNegative = percent < 0;
 	const backgroundColor = isNegative ? "  positive" : "  negative";
+	const arrow = isNegative ? "↓" : "↑";
 
 	return (
 		<>
-			<div className={backgroundColor}>
-				<p>{percentage}</p>
+			<div className="flex">
+				<div className={backgroundColor}></div>
 			</div>
+			<p className="percent-text">
+				<span className="arrow">{arrow}</span>
+				{percentage}
+			</p>
 		</>
 	);
 }

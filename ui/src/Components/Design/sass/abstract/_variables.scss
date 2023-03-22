@@ -6,14 +6,16 @@ $lightGrey-100: #e9e9e9;
 $dark-grey-300: #969696;
 
 $light-green-50: #68d851;
-$green: #87d677;
-$red: #cf4141;
+$green: #6db360;
+$red: #d12626;
 $blue: #549ef2;
 $orange: #fcaf4a;
 
 // Fonts
 
 $primary-font: "Poppins", sans-serif;
+$font-weight-400: 400;
+$font-weight-500: 500;
 
 // Styling
 
@@ -23,8 +25,9 @@ $box-shadow-200: 0px 30px 40px -20px rgb(163, 165, 174);
 
 $border-radius-5: 5px;
 $border-radius-25: 25px;
-$border-radius-50: 50px;
+// $border-radius-50: 50px;
 
 // Size
 
 $width-100: 100%;
+$width-25: 250px;
