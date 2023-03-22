@@ -11,7 +11,7 @@ export const Comparison = () => {
 		<>
 			<section>
 				<div className="header-row">
-					<h1>Comparison</h1>
+					<h1>Bi-monthly Waste Difference</h1>
 					{/* <p>Legend</p> */}
 				</div>
 				<div className="container">
@@ -22,6 +22,7 @@ export const Comparison = () => {
 							months={data["Monthly Tracking"]}
 							filter={["JANUARY", "FEBRUARY"]} // put the month in order of: old month, new month
 						/>
+
 						<ImageComponent title="cascade" />
 					</div>
 					<div className="card cyan eco-action">
