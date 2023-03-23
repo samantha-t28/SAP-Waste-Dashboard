@@ -10,12 +10,10 @@ body {
 
 /*========== Typography ==========*/
 
-// to over-ride the normalizer file
 body h1,
 .sub-heading {
 	margin-left: 2rem;
 }
-
 h1,
 h2 {
 	font-weight: vars.$font-weight-400;
@@ -25,12 +23,20 @@ p {
 	font-size: 1.5rem;
 }
 
+.header-row {
+	display: flex;
+}
+
+.header-row p {
+	margin-left: 3rem;
+}
+
 /*====== Overview Dashboard ========*/
 
 .dashboard .bar_chart,
 .overview-card {
-	border-radius: vars.$border-radius-25;
 	margin: 2.5rem;
+	border-radius: vars.$border-radius-25;
 	box-shadow: vars.$box-shadow-100;
 	-webkit-box-shadow: vars.$box-shadow-100;
 	-moz-box-shadow: vars.$box-shadow-100;
@@ -116,26 +122,18 @@ p {
 	transform: scaleX(1.5);
 }
 
-.header-row {
-	display: flex;
-}
-
-.header-row p {
-	margin-left: 3rem;
-}
-
 /*========== Card ==========*/
 
 .card {
-	position: relative;
 	margin: 20px;
 	padding: 30px;
 	height: 15rem;
+	position: relative;
+	text-align: center;
 	border-radius: vars.$border-radius-5;
 	box-shadow: vars.$box-shadow-200;
 	-webkit-box-shadow: vars.$box-shadow-200;
 	-moz-box-shadow: vars.$box-shadow-200;
-	text-align: center;
 	background-color: vars.$light-white-100;
 }
 
@@ -166,12 +164,9 @@ p {
 		width: 3rem;
 		height: 3rem;
 	}
-	// .card {
-	// 	height: 10%;
-	// }
 }
 
-@media (min-width: 950px) {
+@media (min-width: 768px) {
 	.container {
 		display: flex;
 		justify-content: center;
@@ -185,5 +180,12 @@ p {
 
 	.percent-text {
 		top: -32%;
+	}
+}
+
+@media (min-width: 1024px) {
+	.image {
+		width: 3rem;
+		height: 3rem;
 	}
 }
