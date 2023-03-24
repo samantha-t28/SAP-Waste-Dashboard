@@ -12,11 +12,15 @@ body {
 
 body h1,
 .sub-heading {
-	margin-left: 2rem;
+	margin-left: 3rem;
 }
 h1,
 h2 {
 	font-weight: vars.$font-weight-400;
+}
+
+h2 {
+	padding-bottom: 2rem;
 }
 
 p {
@@ -57,10 +61,6 @@ p {
 
 .overview-card {
 	width: vars.$width-100;
-}
-
-.test {
-	background-color: blue($color: #dd1414);
 }
 
 /*========== Comparison Page ==========*/

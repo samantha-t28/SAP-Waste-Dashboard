@@ -17,7 +17,7 @@ export const Overview = () => {
 				</div>
 			</section>
 
-			<h2 className="sub-heading">February</h2>
+			<h2 className="sub-heading">February Breakdown</h2>
 			<section className="chart_wrap">
 				<div className="overview-card">
 					<Donut
