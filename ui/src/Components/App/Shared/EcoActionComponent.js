@@ -13,7 +13,7 @@ function EcoActionComponent({ months, filter }) {
 	return (
 		<>
 			<div className="flex">
-				<div className={isNegative ? "positive" : "negative"}></div>
+				<div className={!isNegative ? "positive" : "negative"}></div>
 			</div>
 			<p className="percent-text">
 				<span className="arrow">{isNegative ? "↓" : "↑"}</span>
