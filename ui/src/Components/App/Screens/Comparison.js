@@ -18,17 +18,14 @@ export const Comparison = () => {
 					<div className="card blue">
 						<h2>Cascade Recovery</h2>
 						<CascadeComponent
-							percentage="percent text placeholder"
 							months={data["Monthly Tracking"]}
-							filter={["JANUARY", "FEBRUARY"]} // put the month in order of: old month, new month
+							filter={["JANUARY", "FEBRUARY"]}
 						/>
-
 						<ImageComponent title="cascade" />
 					</div>
 					<div className="card cyan eco-action">
 						<h2>Eco Action</h2>
 						<EcoActionComponent
-							percentage="percent text placeholder"
 							months={data["Monthly Tracking"]}
 							filter={["JANUARY", "FEBRUARY"]}
 						/>
@@ -39,7 +36,6 @@ export const Comparison = () => {
 					<div className="card grey">
 						<h2>Waste Control Services</h2>
 						<WasteServiceComponent
-							percentage="percent text placeholder"
 							months={data["Monthly Tracking"]}
 							filter={["JANUARY", "FEBRUARY"]}
 						/>
@@ -48,7 +44,6 @@ export const Comparison = () => {
 					<div className="card orange">
 						<h2>Refundables</h2>
 						<RefundablesComponent
-							percentage="percent text placeholder"
 							months={data["Monthly Tracking"]}
 							filter={["JANUARY", "FEBRUARY"]}
 						/>

@@ -1,38 +1,14 @@
-function EcoActionComponent({ percentage, months, filter }) {
-	let result = [];
+import React, { useState, useEffect } from "react";
+import { CalculatePercentage } from "./CalculatePercentage";
 
-	months = months.slice(0); // months = months // because of safety
-	months.pop();
-
-	for (const [key, month] of Object.entries(months)) {
-		result.push({
-			month: month["Month"],
-			ecoactionTotal: month["Compost"],
-		});
-	}
-
-	let oldMonth = filter[0];
-	let newMonth = filter[1];
-
-	let oldMonthIndex = -1; // good numbers are 0 - 12+ because the dataset can be 0-12 or more, i would not put THE correct value in here
-	let newMonthIndex = -1;
-
-	result.forEach((element, index) => {
-		if (element["month"] === oldMonth) {
-			oldMonthIndex = index;
-		}
-		if (element["month"] === newMonth) {
-			newMonthIndex = index;
-		}
-	});
-
-	oldMonth = result[oldMonthIndex]["ecoactionTotal"];
-	newMonth = result[newMonthIndex]["ecoactionTotal"];
-
-	let percent = ((oldMonth - newMonth) / newMonth) * 100;
-	percentage = percent.toFixed(2) + "%";
-
-	const isNegative = percent < 0;
+function EcoActionComponent({ months, filter }) {
+	const [isNegative, setIsNegative] = useState(false);
+	const [percentage, setPercentage] = useState("0%");
+	useEffect(() => {
+		let data = CalculatePercentage("Compost", "wasteTotal", months, filter);
+		setIsNegative(data[0]);
+		setPercentage(data[1]);
+	}, [isNegative, months, filter]); // dependence of useEffect
 
 	return (
 		<>
