@@ -6,8 +6,9 @@ export const NavBar = () => {
 		<ShellBar
 			logo={
 				<img
+					slot="logo"
 					alt="SAP Logo"
-					src="https://sap.github.io/ui5-webcomponents/assets/images/sap-logo-svg.svg"
+					src="https://ui5.github.io/webcomponents/images/sap-logo-svg.svg"
 				/>
 			}
 			menuItems={
