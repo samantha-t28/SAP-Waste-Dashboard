@@ -1,6 +1,8 @@
 # SAP Waste Diversion Dashboard
 
-Developed and designed a waste diversion dashboard for the Green Team that displays the previous two months of data, helping office staff stay informed and track progress towards zero-waste goals.
+Designed and developed a waste diversion dashboard for SAP's Green Team division that displays the previous two months of data, helping office staff stay informed and track progress towards zero-waste goals.
+
+:rocket:  [View project](https://wastedashboard.sysbox.ca/)
 
 # Getting Started
 
